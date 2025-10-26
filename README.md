@@ -22,8 +22,9 @@ Fetch API - Data fetching from external APIs
 JavaScript ES6+ - Modern JavaScript features
 
 ## APIs Used
-GitHub API
+```GitHub API
 Open-Meteo Weather API
+```
 
 ## Local Development
 Clone the repository
@@ -31,10 +32,10 @@ git clone https://github.com/Yvette334/apis.git
 cd dashboard
 
 ## Install dependencies
-npm install
+```npm install
 Start the development server
 npm run dev
-
+```
 ## Open your browser
 Navigate to http://localhost:5173
 
