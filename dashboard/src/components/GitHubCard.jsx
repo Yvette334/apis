@@ -4,6 +4,7 @@ function Profile(props){
    return(
     <div className="">
     <img src={props.avatar_url} alt="" />
+    <h2>Repos:{props.public_repos} </h2>
     <h2>Followers:{props.followers}</h2>
     <h2>Following:{props.following}</h2>
     </div>
