@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 function Currentwea(props){
    return(
     <div className="">
-    <img src={props.avatar_url} alt="" />
-    <h2>Wind:{props.followers}</h2>
-    <h2>Time:{props.following}</h2>
+    <h2>{props.temperature}°</h2>
+    <h2>Wind:{props.windSpeed}mph</h2>
+    <h2>Time:{props.currentTime}</h2>
     </div>
    )
 }
@@ -15,27 +15,36 @@ export default function WeatherCard() {
   const longitude = 30.0606
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
+    const [time, setTime]= useState(new Date().toLocaleTimeString([], {}))
+    useEffect (()=>{
+      const timer = setInterval(()=>{
+        setTime(new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        }))
+      }, 1000)
+      return ()=> clearInterval(timer)
+    },[])
     useEffect(() => {
         const fetchdata = async () => {
         const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code,wind_speed_10m&timezone=Africa/Kigali`)
         const data = await res.json()
-        setItems ([data])
+        setItems (data.current)
         setLoading(false)
         }
         fetchdata()
     }, [])
-  return (
-   <> {items.length === 0  ? <div>Loading ...</div> :
+    if(!items){
+      return <div>Loading...</div>
+    }
+  return ( 
     <section className="pt-20 pb-20 " >
         <h2 className="font-bold">Current Weather</h2>
      <div>
-        {items.map((items)=>(
-            <Currentwea key={items.id} {...items} />
-        ))}
+            <Currentwea temperature={items.temperature_2m}
+            windSpeed={items.wind_speed_10m}
+            currentTime={time}
+             />
      </div>
     </section>
-
-   }
-   </>
-  )
-}
+  )}
