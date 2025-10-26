@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 function Profile(props){
    return(
-    <div className="h-auto w-[50px] flex gap-8">
-    <img className="rounded-full h-20 w-15" src={props.avatar_url} alt="" />
+    <div className="h-auto flex gap-8">
+    <img className="rounded-full h-30 w-30 object-cover" src={props.avatar_url} alt="" />
     <div className="pl-10">
     <h2 className="text-2xl font-bold">{props.public_repos}</h2>
     <p className="text-lg">Repos</p>
