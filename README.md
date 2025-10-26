@@ -84,38 +84,6 @@ Shows weather condition icons based on API weather codes
 
 Updates time every second
 
-🔧 Key Features Implementation
-Theme Management
-javascript
-// Persistent theme using localStorage
-const [dark, setDark] = useState(false)
-useEffect(() => {
-  const savedTheme = localStorage.getItem('theme')
-  if(savedTheme){
-    setDark(JSON.parse(savedTheme))
-  }
-}, [])
-API Data Fetching
-javascript
-// GitHub data fetching
-useEffect(() => {
-  const fetchdata = async () => {
-    const res = await fetch(`https://api.github.com/users/Yvette334`)
-    const data = await res.json()
-    setItems([data])
-  }
-  fetchdata()
-}, [])
-Weather Icons
-javascript
-const getWeatherIcon = (weatherCode) => {
-  const icons = {
-    0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️",
-    45: "🌫️", 48: "🌫️",
-    // ... more weather codes
-  }
-  return icons[weatherCode] || "🌡️"
-}
 🎨 Design Features
 Card-based Layout: Clean shadow cards with rounded corners
 
