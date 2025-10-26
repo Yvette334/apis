@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 
 function Currentwea(props){
    return(
-    <div className="">
-    <h2>{props.temperature}°</h2>
-    <h2>Wind:{props.windSpeed}mph</h2>
+    <div className="card ">
+    <h2 className="text-4xl font-semibold mb-6">{props.temperature}°</h2>
+    <h2 className="mb-2">Wind:{props.windSpeed}mph</h2>
     <h2>Time:{props.currentTime}</h2>
     </div>
    )
@@ -38,10 +38,11 @@ export default function WeatherCard() {
       return <div>Loading...</div>
     }
   return ( 
-    <section className="pt-20 pb-20 " >
-        <h2 className="font-bold">Current Weather</h2>
-     <div>
-            <Currentwea temperature={items.temperature_2m}
+    <section className="card shadow rounded-2xl p-8 max-w-md w-100 h-85" >
+        <h2 className="font-bold mb-20 text-xl">Current Weather</h2>
+     <div className="">
+            <Currentwea 
+            temperature={items.temperature_2m}
             windSpeed={items.wind_speed_10m}
             currentTime={time}
              />

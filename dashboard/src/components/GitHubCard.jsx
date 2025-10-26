@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 
 function Profile(props){
    return(
-    <div className="">
-    <img src={props.avatar_url} alt="" />
-    <h2>Repos:{props.public_repos} </h2>
-    <h2>Followers:{props.followers}</h2>
-    <h2>Following:{props.following}</h2>
+    <div className="h-auto w-[50px] flex gap-8">
+    <img className="rounded-full h-20 w-15" src={props.avatar_url} alt="" />
+    <div>
+    <h2 className="mb-4">{props.public_repos}
+        <br/>Repos </h2>
+    <h2 className="mb-4">{props.followers}<br/>Followers</h2>
+    <h2 className="mb-4">{props.following}<br/>Following</h2>
+    </div>
     </div>
    )
 }
@@ -25,8 +28,8 @@ export default function GitHubCard() {
     }, [])
   return (
    <> {items.length === 0  ? <div>Loading ...</div> :
-    <section className="pt-20 pb-20 " >
-        <h2 className="font-bold">Github</h2>
+    <section className="card shadow rounded-2xl p-8 max-w-md w-100 h-85" >
+        <h2 className="font-bold mb-10 text-xl">Github</h2>
      <div>
         {items.map((items)=>(
             <Profile key={items.id} {...items} />
