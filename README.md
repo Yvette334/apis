@@ -38,7 +38,7 @@ Open your browser
 Navigate to http://localhost:5173
 
 Project Structure
-developer-dashboard/
+```developer-dashboard/
 ├── public/
 ├── src/
 │   ├── components/
@@ -50,7 +50,7 @@ developer-dashboard/
 │   └── index.css               # Global styles
 ├── package.json
 └── README.md
-
+```
  Component Architecture
 App.jsx
 Manages global theme state using useState
